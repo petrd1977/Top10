@@ -9,7 +9,7 @@
 
 Pravděpodobně jste zranitelní:
 
-* Neznáte-li verze všech komponent, které používáte (na straně klienta i na straně serveru). To se týká jak komponent, které používáte přímo, tak jako vnořené závislosti.
+* Neznáte-li verze všech komponent, které používáte (na straně klienta i na straně serveru). Týká se to jak komponent, které používáte přímo, tak jako vnořené závislosti.
 * Je-li software zranitelný, nepodporovaný nebo zastaralý. To se týká OS, webového / aplikačního serveru, systému správy databází (DBMS), aplikace, API a všechny komponenty, běžící prostředí a knihovny.
 * Nevyhledáváte-li pravidelně zranitelnosti a nejste přihlášení k odběru bulletinů zaměřených na zabezpečení souvisejících s komponentami, které používáte.
 * Neopravíte-li nebo neupgradujete-li základní platformu, frameworky včas a s ohledem na rizika. To se běžně děje v prostředích, kdy záplatování je měsíční nebo čtvrtletní úkol v rámci řízení změn, což znamená, že organizace je po mnoho dní nebo měsíců zbytečně vystavena zranitelnostem které ve skutečnosti už jsou opraveny.
