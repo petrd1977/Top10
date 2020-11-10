@@ -26,14 +26,14 @@ Proveďte přinejmenším následující a prostudujte si odkazy:
 * Neukládejte zbytečně citlivá data. Zničte je co nejdříve, nebo použijte tokenizaci vyhovující PCI DSS nebo použijte zkrácení. Data, která nejsou uchovávána, nemohou být odcizena.
 * Zajistěte zašifrování všech citlivých dat, která jsou v klidu. (AT REST)
 * Zajistěte, aby byly k dispozivi aktuální a silné standardní algoritmy, protokoly a klíče; používejte správnou správu klíčů.
-* Šifrujte všechna přenášená data pomocí zabezpečených protokolů, jako je TLS, s šiframi Perfect Forward Secrecy (PFS), prioritou šifry serverem a zabezpečenými parametry. Vynuťte šifrování pomoví směrnic, jako je HTTP Strict Transport Security (HSTS).
+* Šifrujte všechna přenášená data pomocí zabezpečených protokolů, jako je TLS, s šiframi Perfect Forward Secrecy (PFS), prioritou šifry serverem a zabezpečenými parametry. Vynuťte šifrování pomocí směrnic, jako je HTTP Strict Transport Security (HSTS).
 * Zakažte kešování stránek, které obsahují citlivá data.
 * Ukládejte hesla pomocí silných adaptivních a hashovacích funkcí s pracovním faktorem (faktor zpoždění), například [Argon2](https://www.cryptolux.org/index.php/Argon2), [scrypt](https://wikipedia.org/wiki/Scrypt), [bcrypt](https://wikipedia.org/wiki/Bcrypt) or [PBKDF2](https://wikipedia.org/wiki/PBKDF2).
 * Nezávisle ověřujte efektivnost konfigurace a nastavení.
 
 ## Příklady útočných scénářů
 
-**Scénář #1**: Aplikace, která šifruje čísla kreditních karet v databázi, používá automatické šifrování databáze. Tato data se však při načtení automaticky dešifrují, což umožňuje chybě SQL injection načíst čísla kreditních karet ve dormátu prostého textu.
+**Scénář #1**: Aplikace, která šifruje čísla kreditních karet v databázi, používá automatické šifrování databáze. Tato data se však při načtení automaticky dešifrují, což umožňuje chybě SQL injection načíst čísla kreditních karet ve formátu prostého textu.
 
 **Scénář #2**: Webové stránky nepoužívají nebo nevynucují TLS pro všechny stránky nebo podporují slaboé šifrování. Útočník monitoruje provoz v síti (např. jako otevřené bezdrátové sítě), degraduje připojení z HTTPS na HTTP, zachycuje požadavky a získává soubory cookie relace uživatele. Útočník potom znovu přehraje tento soubor cookie a unese uživatelkou (autentizovanou) relaci, přistupuje nebo upravuje soukromá data uživatele. Místo výše zmiňovaného mohli změnit všechna přenášená data, např. příjemce převodu peněz.
 
