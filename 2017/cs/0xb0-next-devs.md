@@ -2,7 +2,7 @@
 
 ## Zaveďte &amp; používejte opakovatelné bezpečnostní procesy a standardní řízení bezpečnosti
 
-Ať už jste v zabezpečení webových aplikací nováčci, nebo jste s těmito riziky již velmi dobře obeznámeni, vytvoření bezpečné webové aplikace nebo oprava té stávající může být obtížné. Správa velkého portfolia aplikací bývá náročná.
+Ať už jste v zabezpečení webových aplikací nováčci, nebo jste s těmito riziky již velmi dobře obeznámeni, vytvoření bezpečné webové aplikace nebo oprava té stávající mohou být obtížné. Správa velkého portfolia aplikací bývá náročná.
 
 Abychom v rámci projektu OWASP pomohli organizacím a vývojářům snížit bezpečnostní rizika aplikací nákladově efektivním způsobem, vytvořili jsme řadu bezplatných a otevřených zdrojů, které můžete použít k řešení zabezpečení aplikací ve vaší organizaci. Níže naleznete některé z mnoha zdrojů, které OWASP vytvořil, aby pomohl organizacím vytvářet zabezpečené webové aplikace a API. Na následující stránce představujeme další prostředky OWASP, které mohou organizacím pomoci při ověřování zabezpečení aplikací a rozhraní API.
 

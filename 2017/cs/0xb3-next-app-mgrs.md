@@ -6,7 +6,7 @@ Aplikace patří k nejsložitějším systémům, které lidé pravidelně vytv�
 
 ## Požadavky a správa zdrojů
 
-* Shromažďujte a vyjednávejte obchodní požadavky na aplikaci s obchodím oddělením, včetně požadavků na ochranu s ohledem na důvěrnost, autenticitu, integritu a dostupnost všech datových aktiv a očekávanou obchodní logiku.
+* Shromažďujte a vyjednávejte obchodní požadavky na aplikaci s obchodním oddělením, včetně požadavků na ochranu s ohledem na důvěrnost, autenticitu, integritu a dostupnost všech datových aktiv a očekávanou obchodní logiku.
 * Sestavte technické požadavky včetně funkčních a nefunkčních bezpečnostních požadavků.
 * Naplánujte a vyjednejte rozpočet, který pokrývá všechny aspekty návrhu, sestavení, testování a provozu, včetně činností spjatých se zaručením bezpečnosti.
 
@@ -19,7 +19,7 @@ Aplikace patří k nejsložitějším systémům, které lidé pravidelně vytv�
 
 ## Plánování a design
 
-* Vyjednávejte plánování a design s vývojáři a interními akcionáři, např.: bezpečnostnimi specialisty.
+* Vyjednávejte plánování a design s vývojáři a interními akcionáři, např.: bezpečnostními specialisty.
 * Definujte architekturu zabezpečení, ovládací prvky a protiopatření odpovídající potřebám ochrany a očekávané úrovni ohrožení. Vše uvedené by mělo být podporováno bezpečnostními specialisty.
 * Zajistěte, aby vlastník aplikace přijal zbývající rizika nebo poskytl další zdroje.
 * V každém sprintu zajistěte vytvoření příběhů spjatých se zabezpečením, které obsahují omezení přidaná pro nefunkční požadavky.
