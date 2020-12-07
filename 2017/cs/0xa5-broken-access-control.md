@@ -2,8 +2,8 @@
 
 | Původci hrozby/Vektor útoku | Bezpečnostní slabina  | Dopady |
 | -- | -- | -- |
-| Access Lvl : Zneužitelnost 2 | Rozšíření 2 : Zjistitelnost 2 | Technické 3 : Business |
-| Zneužití kontroly přístupu je základní dovednostní útočníků [SAST](https://www.owasp.org/index.php/Source_Code_Analysis_Tools) a [DAST](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) nástroje mohou detekovat absenci kontroly přístupu, ale nemohou ověřit, zda je funkční, když je přítomna. Řízení přístupu je detekovatelné s využitím ručních prostředků, nebo případně automatizací pro absenci kontroly přístupu v určitých frameworcích. | Slabiny řízení přístupu jsou běžné kvůli nedostatku automatické detekce a nedostatku efektivního testování vývojaři aplikací. Detekce řízení přístupu není obvykle přístupná automatizovanému statickému nebo dynamickému testování. Manuální testování je nejlepším způsobem pro detekci nebo neefektivní kontrolu přístupu, včetně HTTP metod (GET vs PUT, atd.), controllerů, přímých odkazů na objekty, atd. | Technickým dopadem jsou útočníci vystupující jako uživatelé nebo administrátoři, nebo uživatelé využívající privilegované funkce, nebo vytvářející, přistupující nebo aktualizující či mazající každý záznam. Dopad podnikání závisí na potřebách ochrany aplikace a dat.|
+| Access Lvl : Zneužitelnost 2 | Rozšíření 2 : Zjistitelnost 2 | Technické 3 : Obchodní |
+| Zneužití kontroly přístupu je základní dovednostní útočníků [SAST](https://www.owasp.org/index.php/Source_Code_Analysis_Tools) a [DAST](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) nástroje mohou detekovat absenci řízení přístupu, ale nemohou ověřit, zda je funkční, když je přítomno. Řízení přístupu je detekovatelné s využitím ručních prostředků, nebo případně automatizací pro absenci řízení přístupu v určitých aplikačních rámcích. | Slabiny řízení přístupu jsou běžné kvůli nedostatku automatické detekce a nedostatku efektivního testování vývojaři aplikací. Detekce řízení přístupu není obvykle přístupná automatizovanému statickému nebo dynamickému testování. Manuální testování je nejlepším způsobem pro detekci nebo neefektivní řízení přístupu, včetně HTTP metod (GET vs PUT, atd.), controllerů, přímých odkazů na objekty, atd. | Technickým dopadem jsou útočníci vystupující jako uživatelé nebo administrátoři, nebo uživatelé využívající privilegované funkce, nebo vytvářející, přistupující nebo aktualizující či mazající každý záznam. Dopad podnikání závisí na potřebách ochrany aplikace a dat.|
 
 ## Je aplikace zranitelná?
 
@@ -16,19 +16,19 @@
 * Chybná konfigurace CORS umožňuje neoprávněný přístup API.
 * Vynutit procházení na ověřené stránky jako neověřený uživatel nebo na privilegované stránky jako standardní uživatel. Přístup k API s chybějícími ovládacími prvky pro POST, PUT a DELETE.
 
-## Jak tomu zabránit
+## Jak se mohu bránit?
 
-Řízení přístupu je účinné pouze v případě, že je vynuceno v důvěryhodném kódu na straně serveru nebo API bez serveru, kde útočník nemůže upravit kontrolu přístupu nebo metadata.
+Řízení přístupu je účinné pouze v případě, že je vynuceno v důvěryhodném kódu na straně serveru nebo API bez serveru, kde útočník nemůže upravit řízení přístupu nebo metadata.
 
 * S výjimkou veřejných zdrojů ve výchozím nastavení zakázat.
 * Implementujte mechanismy řízení přístupu jednou a znovu je používejte v celé aplikaci, včetně minimalizace využití CORS.
 * Modelové řízení přístupu by mělo vynucovat vlastnictví záznamu, nikoli přijímat, že uživatel může vytvořit, číst, aktualizovat nebo odstranit jakýkoli záznam.
 * Unikátní požadavky na obchodní limity aplikací by měly být vynucovány doménovými modely.
-* Zakažte výpis adresářů webového serveru a zajistěte, aby se ve webových kořenech nenacházely metadata souborů (např. .git) a záložní soubory.
+* Zakažte výpis adresářů webového serveru a zajistěte, aby se ve webových kořenech nenacházela metadata souborů (např. .git) a záložní soubory.
 * Zaznamenejte selhání řízení přístupu, upozorněte administrátory, když je to vhodné (např. opakovaná selhání).
-* Ohodnoťte limit API a kontroleru přístupu, abyste minimalizovali škody způsobené nástroji automatizovaného útoku.
+* Ohodnoťte limit API a řízení přístupu, abyste minimalizovali škody způsobené nástroji automatizovaného útoku.
 * Tokeny JWT by měly být na serveru po odhlášení zneplatněny.
-* Vývojáři a zaměstnanci QA by měli zahrnovat funkční jednotku kontroly přístupu a integrační testy.
+* Vývojáři a zaměstnanci QA by měli zahrnovat funkční jednotku řízení přístupu a integrační testy.
 
 ## Příklady útočných scénářů
 
@@ -43,14 +43,14 @@
 
 `http://example.com/app/accountInfo?acct=notmyacct`
 
-**Scenario #2**: Útočník jednoduše vynutí procházení k cílovým URL adresám. Adminova práva jsou požadována pro přístup do adminovy stránky.
+**Scenario #2**: Útočník jednoduše vynutí procházení k cílovým URL adresám. Práva aministrátora jsou požadována pro přístup do administrátorovy stránky.
 
 ```
   http://example.com/app/getappInfo
   http://example.com/app/admin_getappInfo
 ```
 
-Pokud má neautentizovaný uživatel přístup na kteroukoliv stránku, jedná se o chybu. Pokud má neadministrátor přístup do stránek admina, jedná se o chybu.
+Pokud má neautentizovaný uživatel přístup na kteroukoliv stránku, jedná se o chybu. Pokud má neadministrátor přístup do stránek asministrátora, jedná se o chybu.
 
 ## Odkazy
 

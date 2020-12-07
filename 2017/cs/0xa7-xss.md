@@ -3,7 +3,7 @@
 | Původci hrozby/Vektor útoku | Bezpečnostní slabina           | Dopady               |
 | -- | -- | -- |
 | Aplikačně specifické : Zneužitelnost 3 | Rozšíření 3 : Zjistitelnost 3 | Technické 2 : Obchodní |
-| Automatizované nástroje mohou detekovat a využívat všechny tři formy XSS a existují i volně dostupné frameworky. | XSS je druhým nejrozšířenějším problémem v OWASP Top 10 a nachází se v přibližně dvou třetinách všech aplikací. Automatizované nástroje mohou některé problémy XSS automaticky najít, zejména ve vyspělých technologiích, jako jsou PHP, J2EE/JSP a ASP.NET. | Dopad stored XSS a DOM XSS útoku je mírný. Pro reflected XSS je dopad vážný kvůli vzdálenému spuštění kódu v prohlížeči oběti, kdy může nastat krádež pověření, relace nebo doručení malwaru oběti. |
+| Automatizované nástroje mohou detekovat a využívat všechny tři formy XSS a existují i volně dostupné aplikační rámce. | XSS je druhým nejrozšířenějším problémem v OWASP Top 10 a nachází se v přibližně dvou třetinách všech aplikací. Automatizované nástroje mohou některé problémy XSS automaticky najít, zejména ve vyspělých technologiích, jako jsou PHP, J2EE/JSP a ASP.NET. | Dopad stored XSS a DOM XSS útoku je mírný. Pro reflected XSS je dopad vážný kvůli vzdálenému spuštění kódu v prohlížeči oběti, kdy může nastat krádež pověření, relace nebo doručení malwaru oběti. |
 
 ## Je aplikace zranitelná?
 
@@ -11,7 +11,7 @@ Existují tři formy XSS, obvykle zaměřené na prohlížeče uživatelů:
 
 * **Stored XSS**: Aplikace nebo rozhraní API obsahuje jako součást výstupu HTML neověřený a neescapovaný vstup uživatele. Úspěšný útok může útočníkovi umožnit spustit libovolný HTML a JavaScript v prohlížeči oběti. Uživatel bude obvykle muset komunikovat s nějakým nebezpečným odkazem, který ukazuje na stránku ovládanou útočníkem, jako jsou škodlivé watering hole stránky, reklamy apod.
 * **Reflected XSS**: Aplikace nebo API ukládá nesanitovaný vstup uživatele, který si později prohlédne jiný uživatel nebo administrátor. Trvalé XSS je často považováno za vysoké nebo kritické riziko.
-* **DOM XSS**: JavaScript frameworky, single-page aplikace, a API rozhraní, které dynamicky zahrnují na stránku data kontrolovatelná útočníkem, jsou zranitelné vůči DOM XSS. V ideálním případě by aplikace neměla posílat data řízená útočníkem na nespolehlivá rozhraní API JavaScriptu.
+* **DOM XSS**: JavaScript aplikační rámce, single-page aplikace, a API rozhraní, které dynamicky zahrnují na stránku data kontrolovatelná útočníkem, jsou zranitelné vůči DOM XSS. V ideálním případě by aplikace neměla posílat data řízená útočníkem na nespolehlivá rozhraní API JavaScriptu.
 
 Typické útoky XSS zahrnují krádeže relací, převzetí účtu, MFA bypass, nahrazení nebo znehodnocení DOM (například přihlašovací panely trojských koní), útoky proti prohlížeči uživatele, například stahování škodlivého softwaru, protokolování klíčů a další útoky na straně klienta.
 
@@ -19,8 +19,8 @@ Typické útoky XSS zahrnují krádeže relací, převzetí účtu, MFA bypass, 
 
 Prevence XSS vyžaduje oddělení nedůvěryhodných dat od aktivního obsahu prohlížeče. Toho lze dosáhnout:
 
-* Používáním frameworků, které automaticky escapují XSS, například nejnovější Ruby on Rails, React JS. Nastudujte si jednotlivá omezení XSS ochrany u každého frameworku a případy, které nejsou ošetřeny, adekvátně vyřešte.
-* Důkladné escapování všech nedůvěryhodných dat založených na kontextu HTML (body, attribute, JavaScript, CSS, nebo URL) vyřeší reflected a stored XSS chyby. [OWASP  Cheat Sheet 'XSS Prevention'](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet)  poskytuje podrobnosti o požadovaných technikách úniku dat.
+* Používáním aplikačních rámců, které automaticky escapují XSS, například nejnovější Ruby on Rails, React JS. Nastudujte si jednotlivá omezení XSS ochrany u každého rámce a případy, které nejsou ošetřeny, adekvátně vyřešte.
+* Důkladné escapování všech nedůvěryhodných dat založených na kontextu HTML (body, attribute, JavaScript, CSS, nebo URL) vyřeší reflected a stored XSS chyby. [OWASP  Cheat Sheet 'XSS Prevention'](https://www.owasp.org/index.php/XSS_(Cross_Site_Scripting)_Prevention_Cheat_Sheet) poskytuje podrobnosti o požadovaných technikách úniku dat.
 * Použití kontextového kódování při úpravách dokumentu prohlížeče na straně klienta se jeví jako obrana proti DOM XSS. Pokud tomu nelze zabránit, podobné kontextové techniky escapování lze použít na API prohlížeče, jak je popsáno v OWASP Cheat Sheet 'DOM based XSS Prevention'.
 * Povolení [Content Security Policy (CSP)](https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP) jako hloubkové obrany zmírňující kontrolu proti XSS. Je účinná, pokud neexistují žádné další chyby zabezpečení, které by umožňovaly umisťování škodlivého kódu prostřednictvím lokálních souborů (např. přepisy procházení cest nebo zranitelné knihovny z povolených sítí pro doručování obsahu).
 

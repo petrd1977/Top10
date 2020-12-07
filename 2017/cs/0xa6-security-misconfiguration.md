@@ -16,7 +16,7 @@ Aplikace může být zranitelná pokud:
 * U upgradovaných systémů jsou nejnovější funkce zabezpečení deaktivovány nebo nejsou bezpečně nakonfigurovány.
 * Nastavení zabezpečení v aplikačních serverech, aplikačních rámcích (např. Struts, Spring, ASP.NET), knihovnách, databázích atd. není nastaveno na bezpečné hodnoty.
 * Server neodesílá bezpečnostní hlavičky ani směrnice nebo není nastaven na bezpečné hodnoty.
-* Software je zastaralý nebo zranitelný (viz **A9: 2017 – Používání komponent se známými bezpečnostními chybami**).
+* Software je zastaralý nebo zranitelný (viz **A9: 2017 – Používání komponent se známými zranitelnostmi**).
 
 Bez koordinovaného a opakovatelného procesu konfigurace zabezpečení aplikace jsou systémy vystaveny vyššímu riziku.
 
@@ -26,7 +26,7 @@ Měly by být implementovány procesy zabezpečené instalace, včetně následu
 
 * Opakovatelný proces, který umožňuje rychlé a snadné nasazení jiného prostředí, které je správně uzamčeno. Vývojová, testovací (QA) a produkční prostředí by měla být všechna nakonfigurována identicky s různými pověřeními používanými v každém prostředí. Tento proces by měl být automatizován, aby se minimalizovalo úsilí potřebné k nastavení nového zabezpečeného prostředí.
 * Minimalistická platforma bez zbytečných funkcí, komponent, dokumentace a vzorků. Odeberte nebo neinstalujte nepoužívané funkce a aplikační rámce.
-* Úkol zkontrolovat a aktualizovat konfigurace odpovídající všem bezpečnostním poučkám, aktualizacím a opravám jako součást procesu správy oprav (viz **A9: 2017 - Používání komponent se známými bezpečnostními chybami**). Zkontrolujte zejména oprávnění cloudového úložiště (např.: oprávnění S3 Buckets).
+* Úkol zkontrolovat a aktualizovat konfigurace odpovídající všem bezpečnostním poučkám, aktualizacím a opravám jako součást procesu správy oprav (viz **A9: 2017 - Používání komponent se známými zranitelnostmi**). Zkontrolujte zejména oprávnění cloudového úložiště (např.: oprávnění S3 Buckets).
 * Segmentovaná aplikační architektura, která poskytuje efektivní a bezpečné oddělení komponent, a to se segmentací, kontejnerizací nebo cloudovými bezpečnostními skupinami (Access Control List – ACL).
 * Odesílání bezpečnostních směrnic klientské straně, např.: [bezpečnostní hlavičky](https://www.owasp.org/index.php/OWASP_Secure_Headers_Project).
 * Automatizovaný proces ověřující efektivitu konfigurací a nastavení ve všech prostředích.
@@ -35,7 +35,7 @@ Měly by být implementovány procesy zabezpečené instalace, včetně následu
 
 **Scénář č. 1**: Aplikační server je dodáván s ukázkovými aplikacemi, které nejsou odebrány z produkčního serveru. Tyto ukázkové aplikace mají známé bezpečnostní chyby, které útočníci používají ke kompromitaci serveru. Pokud je jednou z těchto aplikací správcovská konzole a výchozí účty nebyly změněny, útočník se přihlásí pomocí výchozích hesel a převezme kontrolu.
 
-**Scénář č. 2**: Zobrazení seznamu adresářů není na serveru zakázáno. Útočník zjistí, že může jednoduše vypsat dostupné adresáře. Útočník najde a stáhne zkompilované třídy Java, které dekompiluje a zobrazení si kód pomocí reverzního inženýrství. Útočník poté v aplikaci najde závažnou chybu v řízení přístupu.
+**Scénář č. 2**: Zobrazení seznamu adresářů není na serveru zakázáno. Útočník zjistí, že může jednoduše vypsat dostupné adresáře. Útočník najde a stáhne zkompilované třídy Java, které dekompiluje a zobrazí si kód pomocí reverzního inženýrství. Útočník poté v aplikaci najde závažnou chybu v řízení přístupu.
 
 **Scénář č. 3**: Konfigurace aplikačního serveru umožňuje vypisování podrobných chybových zpráv uživatelům, např.: kroky zásobníku. To potenciálně odhaluje citlivé informace nebo podkladové chyby, jako jsou verze knihoven, u nichž je známa jejich zranitelnost.
 

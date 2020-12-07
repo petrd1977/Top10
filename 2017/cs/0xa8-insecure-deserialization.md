@@ -11,7 +11,7 @@ Aplikace a aplikační rozhraní (API) budou zranitelné, pokud deserializují p
 
 To může mít za následek dva primární typy útoků:
 
-* Útoky související s objektovou a datovou strukturou, kdy útočník upraví logiku aplikace nebo dosahne spuštění kódu na vzdáleném stroji (pokud má aplikace k dispozici třídy, které mohou změnit chování během deserializace nebo po ní).
+* Útoky související s objektovou a datovou strukturou, kdy útočník upraví logiku aplikace nebo dosáhne spuštění kódu na vzdáleném stroji (pokud má aplikace k dispozici třídy, které mohou změnit chování během deserializace nebo po ní).
 * Typické útoky manipulující daty, jako jsou útoky související s řízením přístupu, kde se používají existující datové struktury, ale mění se jejich obsah.
 
 Serializaci lze použít v aplikacích pro:
@@ -29,7 +29,7 @@ Jediným bezpečným architektonickým vzorem je nepřijímat serializované obj
 Pokud to není možné, zvažte jednu z následujících možností:
 
 * Implementace kontrol integrity, jako jsou digitální podpisy na všech serializovaných objektech, aby se zabránilo vytváření škodlivých objektů nebo nedovolené manipulaci s daty.
-* Zavedení přísné typové kontroly během deserializace před vytvořením objektu, protože kód obvykle očekává definovatelnou sadu tříd. Obcházení této techniky byly prokázány, takže spoléhání se pouze na ni se nedoporučuje.
+* Zavedení přísné typové kontroly během deserializace před vytvořením objektu, protože kód obvykle očekává definovatelnou sadu tříd. Obcházení této techniky byla prokázána, takže spoléhání se pouze na ni se nedoporučuje.
 * Izolace a spuštění kódu, který deserializuje v prostředích s nízkými oprávněními, pokud je to možné.
 * Logování deserializačních výjimek a selhání. Například když příchozí typ není očekávaným typem, nebo deserializace vyvolá výjimku.
 * Omezení nebo monitorování příchozího a odchozího připojení k síti z kontejnerů nebo serverů, které deserializují.

@@ -12,15 +12,15 @@ Aplikace a zejména webové služby založené na XML nebo následné integraci 
 * Aplikace přijímá XML přímo nebo nahrává, zejména z nedůvěryhodných zdrojů, nebo vkládá nedůvěryhodná data do XML dokumentů, které pak analyzuje XML procesor.
 * Kterýkoli z procesorů XML v aplikaci nebo ve webových službách založených na protokolu SOAP má povolenu [definici typu dokumentu (DTDs)](https://en.wikipedia.org/wiki/Document_type_definition). Přesný mechanismus deaktivace zpracování DTD se liší podle procesoru, proto je dobrým zvykem takové možnosti zkonzultovat [OWASP Cheat Sheet 'XXE Prevention'](https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Prevention_Cheat_Sheet).
 * Aplikace využívá standard SAML pro zpracování identity v rámci federovaného zabezpečení nebo jednotného přihlášení (SSO). SAML využívá XML pro tvrzení identity a může být zranitelný.
-* Aplikace používá SOAP před verzí 1.2. Pravděpodobně je náchylná k útokům XXE, pokud jsou entity XML předávány do frameworku SOAP.
-* Zranitelnost vůči XXE útokům pravděpodobně znamená, že aplikace je zranitelná vůči útokům odmítnutí služby (DoS), včetně útoku Billion Laughs
+* Aplikace používá SOAP před verzí 1.2. Pravděpodobně je náchylná k útokům XXE, pokud jsou entity XML předávány do aplikačního rámce SOAP.
+* Zranitelnost vůči XXE útokům pravděpodobně znamená, že aplikace je zranitelná vůči útokům odmítnutí služby (DoS), včetně útoku Billion Laughs.
 
 ## Jak se mohu bránit?
 
 Pro identifikaci a zmírnění XXE je zásadní školení vývojářů. Kromě toho prevence XXE vyžaduje:
 
 * Kdykoli je to možné, používejte méně složité datové formáty, jako je JSON, a vyhněte se serializaci citlivých dat. 
-* Opravte nebo proveďte upgrade všech procesorů XML a knihoven používaných aplikací nebo základním operačním systémem. Použijte nástroje pro kontrolu závislostí. Aktualizujte SOAP na SOAP 1.2 nebo vyšší
+* Opravte nebo proveďte upgrade všech procesorů XML a knihoven používaných aplikací nebo základním operačním systémem. Použijte nástroje pro kontrolu závislostí. Aktualizujte SOAP na SOAP 1.2 nebo vyšší.
 * Zakažte externí entitu XML a zpracování DTD ve všech analyzátorech XML v aplikaci, podle [OWASP Cheat Sheet 'XXE Prevention'](https://www.owasp.org/index.php/XML_External_Entity_(XXE)_Prevention_Cheat_Sheet). 
 * Implementujte pozitivní („whitelisting“) ověření vstupu na straně serveru, filtrování nebo sanitaci, abyste zabránili nepřátelským datům v dokumentech XML, záhlavích nebo uzlech.
 * Ověřte, zda funkce nahrávání souborů XML nebo XSL ověřuje příchozí XML pomocí XSD nebo podobného ověření.

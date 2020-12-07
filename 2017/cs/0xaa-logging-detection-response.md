@@ -15,9 +15,9 @@ K nedostatečnému logování, detekci, monitorování a aktivní odezvě dochá
 * Protokoly se ukládají pouze lokálně.
 * Nejsou nastaveny vhodné prahové hodnoty a procesy eskalace odezvy nejsou zavedeny, nebo jsou neúčinné.
 * Penetrační testování a skenování nástroji [DAST](https://www.owasp.org/index.php/Category:Vulnerability_Scanning_Tools) (například [OWASP ZAP](https://www.owasp.org/index.php/OWASP_Zed_Attack_Proxy_Project)) nespouští upozornění.
-* Aplikace není schopna detekovat nebo upozorňovat na aktivní útoky v reálném čase nebo s mírným spožděním a případně předávat k dodatečným konktrolám.
+* Aplikace není schopna detekovat nebo upozorňovat na aktivní útoky v reálném čase nebo s mírným zpožděním a případně předávat k dodatečným konktrolám.
 
-Vůči úniku informací jste zranitelní, pokud nezabezpečíte logy a upozornění před uživateli nebo útočníky (viz A3: Expozice citlivých informací 2017).
+Vůči úniku informací jste zranitelní, pokud nezabezpečíte logy a upozornění před uživateli nebo útočníky (viz A3: Expozice citlivých dat 2017).
 
 ## Jak se mohu bránit?
 

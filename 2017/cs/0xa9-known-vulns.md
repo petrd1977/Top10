@@ -12,16 +12,16 @@ Pravděpodobně jste zranitelní:
 * Neznáte-li verze všech komponent, které používáte (na straně klienta i na straně serveru). To se týká jak komponent, které používáte přímo, tak vnořených závislostí.
 * Je-li software zranitelný, nepodporovaný nebo zastaralý. To se týká OS, webového / aplikačního serveru, systému správy databází (DBMS), aplikace, API a všech komponent, knihoven běžícího prostředí.
 * Nevyhledáváte-li pravidelně zranitelnosti a nejste přihlášení k odběru bulletinů zaměřených na zabezpečení souvisejících s komponentami, které používáte.
-* Neopravíte-li nebo neupgradujete-li základní platformu, frameworky včas a s ohledem na rizika. To se běžně děje v prostředích, kdy záplatování je měsíčním nebo čtvrtletním úkolem v rámci řízení změn, což znamená, že organizace je po mnoho dní nebo měsíců zbytečně vystavena zranitelnostem,které ve skutečnosti už jsou opraveny.
+* Neopravíte-li nebo neupgradujete-li základní platformu, aplikační rámce včas a s ohledem na rizika. To se běžně děje v prostředích, kdy záplatování je měsíčním nebo čtvrtletním úkolem v rámci řízení změn, což znamená, že organizace je po mnoho dní nebo měsíců zbytečně vystavena zranitelnostem, které jsou už ve skutečnosti opraveny.
 * Netestují-li vývojáři softwaru kompatibilitu aktualizovaných, upgradovaných nebo opravených knihoven.
-* Nezajistíte-li konfigurace komponent (viz **A6:2017-Nesprávná bezpečnostní konfigurace**).
+* Nezajistíte-li konfigurace komponent (viz **A6:2017 - Chybná konfigurace zabezpečení**).
 
-## Jaká je prevence?
+## Jak se mohu bránit?
 
 Je třeba zavést proces řízení oprav, který umožní:
 
 * Odstranit nepoužívané závislosti, nepotřebné funkce, komponenty, soubory a dokumentaci.
-* Průběžně inventarizovat verze komponent jak na straně klienta, tak na straně serveru (např. frameworky, knihovny) a jejich závislosti pomocí nástrojů, jakými jsou versions, DependencyCheck, retire.js atd.  
+* Průběžně inventarizovat verze komponent jak na straně klienta, tak na straně serveru (např. aplikační rámec, knihovny) a jejich závislosti pomocí nástrojů, jakými jsou versions, DependencyCheck, retire.js atd.  
 * Průběžně sledovat zdroje o zranitelnostech komponent v CVE a NVD. K automatizaci procesu použijte Software Composition Analysis. Přihlaste se k odběru e-mailových upozornění na zranitelnosti související s komponentami, které používáte. 
 * Komponenty získávat pouze z oficiálních zdrojů přes zabezpečené odkazy. Upřednostňujte podepsané balíčky, abyste snížili šanci získání upravené škodlivé komponenty.
 * Dávat pozor na knihovny a komponenty, které již nejsou podporovány nebo již nedostávají bezpečnostní aktualizace. Pokud oprava není možná, zkuste použít virtuální opravy k detekci nebo k zabránění zneužití známých chyb zabezpečení.
@@ -30,9 +30,9 @@ Každá organizace by měla zajistit, aby aktualizace nebo změny konfigurace by
 
 ## Příklady útočných scénářů
 
-**Scénář #1**: Komponenty obvykle běží se stejnými oprávněními jako samotná aplikace, takže nedostatky v kterékoliv komponentě mohou mít závažný dopad. Tyto chyby mohou být neúmyslné (např. chyba kódování) nebo úmyslné (např. zadní vrátka v komponentě). Některé příklady odhalených zneužitelných zranitelnosti komponent:
+**Scénář #1**: Komponenty obvykle běží se stejnými oprávněními jako samotná aplikace, takže nedostatky v kterékoliv komponentě mohou mít závažný dopad. Tyto chyby mohou být neúmyslné (např. chyba kódování) nebo úmyslné (např. zadní vrátka v komponentě). Některé příklady odhalených zneužitelných zranitelností komponent:
 
-* [CVE-2017-5638](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5638), zranitelnost frameworku Struts 2 umožňující vzdálené spuštění libovolného kódu na serveru. Stála za mnoha významnými narušeními.
+* [CVE-2017-5638](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2017-5638), zranitelnost aplikačního rámce Struts 2 umožňující vzdálené spuštění libovolného kódu na serveru. Stála za mnoha významnými narušeními.
 * Zatímco [internet věcí (IoT)](https://en.wikipedia.org/wiki/Internet_of_things) je často obtížné nebo nemožné opravit, důležitost jejich oprav může být velká (např. biomedicínská zařízení).
 
 Existují automatizované nástroje pomáhající útočníkům najít neopravené nebo nesprávně nakonfigurované systémy. Například [vyhledavač Shodan IoT](https://www.shodan.io/report/89bnfUyJ) vám může pomoci najít zařízení, která stále trpí zranitelností [Heartbleed](https://en.wikipedia.org/wiki/Heartbleed) opravené v dubnu 2014.
